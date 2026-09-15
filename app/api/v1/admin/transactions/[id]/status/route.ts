@@ -5,10 +5,10 @@ import { ReservationsRepository } from "@/lib/modules/reservations/reservations.
 
 export const dynamic = "force-dynamic";
 
-export const PATCH = withApiHandler(async (req, context) => {
+export const PATCH = withApiHandler(async (req, ctx) => {
   requireRole(req, "ADMIN");
   
-  const { id } = await context.params;
+  const { id } = await ctx!.params!;
   const body = await req.json();
   const { status } = body;
   
